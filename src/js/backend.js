@@ -1,6 +1,7 @@
 // Backend Logic
 export function UserData() {
   this.age;
+  this.sex;
   this.weight;
   this.height;
   this.education;
