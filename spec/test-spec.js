@@ -79,4 +79,19 @@ describe("UserData", function() {
     expect(BMI).toEqual(3);
   });
 
+  it("Determine how many years a user has left to live on each planet", function() {
+    UserData.prototype.getYearsLeftToLiverPerPlanet = function() {
+
+    }
+    newUser.age = 30.74;
+    newUser.mercuryAge = 128.08;
+    newUser.venusAge = 49.58;
+    newUser.marsAge = 16.35;
+    newUser.jupiterAge = 2.59;
+    newUser.sex = 83;
+    newUser.weight = 195;
+    newUser.height = 70;
+
+  });
+
 });
