@@ -1,11 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Title Here</title>
+  <title>Super Galactic Age Calculator</title>
 </head>
 <body>
   <div class="container">
-    <h1>Some new JavaScript Project</h1>
+    <h1>Super Galactic Age Calculator</h1>
+
+    <form id="form">
+      <div class="form-group">
+        <label for="month">MM</label>
+        <input name="month" type="number" value="1" min="1" max="12">
+      </div>
+      <div class="form-group">
+        <label for="day">DD</label>
+        <input name="day" type="number" value="1" min="1" max="31">
+      </div>
+      <div class="form-group">
+        <label for="year">YYYY</label>
+        <input name="year" type="number" value="1970" min="1970">
+      </div>
+
+      <div class="radio">
+        <label for="generder"></label>
+        <label><input value="83" type="radio" name="gender" checked>Male</label>
+      </div>
+      <div class="radio">
+        <label><input value="85" type="radio" name="gender">Female</label>
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input name="weight" type="number" value="100" min="1">
+      </div>
+
+
+      <div class="form-group">
+        <label for="feet">FT</label>
+        <input name="feet" type="number" value="0" max="8">
+      </div>
+      <div class="form-group">
+        <label for="inch">IN</label>
+        <input name="inch" type="number" value="0" max="11">
+      </div>
+
+      <label for="education">Education Level: </label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="education" checked>Less than 12 years</label>
+      </div>
+      <div class="radio">
+        <label><input value="2" type="radio" name="education">Highschool graduate</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="education" disabled>Some College</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="education" disabled>College Graduate</label>
+      </div>
+
+      <label for="relationsip">Relationship Status: </label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="relationsip" checked>Single</label>
+      </div>
+      <div class="radio">
+        <label><input value="2" type="radio" name="relationsip">Married/In a replationship</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="relationsip" disabled>Widowed</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="relationsip" disabled>Divorced</label>
+      </div>
+
+      <label for="income">Your Annual Income: </label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="income" checked><$40K</label>
+      </div>
+      <div class="radio">
+        <label><input value="2" type="radio" name="income">$40-$60K</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="income" disabled>$60-80k</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="income" disabled>>$80K</label>
+      </div>
+
+      <label for="exercise">Exercise: </label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="exercise" checked>Never</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="2" type="radio" name="exercise" disabled>1-2 workouts per week</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="exercise" disabled>3-4 workouts per week</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="exercise" disabled>5+ workouts per week</label>
+      </div>
+
+      <label for="health">General Health: </label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="health" checked>Poor</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="2" type="radio" name="health" disabled>Fair</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="health" disabled>Good</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="health" disabled>Very good</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="5" type="radio" name="health" disabled>Excellant</label>
+      </div>
+
+      <label for="alcohol">Alcohol:</label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="alcohol" checked>Zero</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="2" type="radio" name="alcohol" disabled>Fewer than 2 drinks per week</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="alcohol" disabled>2-7 drinks per week</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="4" type="radio" name="alcohol" disabled>8 or more drinks per week</label>
+      </div>
+
+      <label for="alcohol">Smoking:</label>
+      <div class="radio">
+        <label><input value="1" type="radio" name="alcohol" checked>Never Smoke</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="2" type="radio" name="alcohol" disabled>Quit</label>
+      </div>
+      <div class="radio disabled">
+        <label><input value="3" type="radio" name="alcohol" disabled>Still Smoke</label>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
   </div>
 </body>
 </html>
