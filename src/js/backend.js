@@ -12,3 +12,11 @@ export function UserData() {
   this.alcohol;
   this.smoking;
 }
+
+UserData.prototype.getUserCurrentAge = function(year, month, day) {
+  let birthDate = new Date(year, month, day);
+  let birthDateMilliseconds = birthDate.getTime();
+  let ageMilliseconds = Date.now() - birthDateMilliseconds;
+  let millisecondsPerYear = 31536000000;
+  this.age = parseFloat((ageMilliseconds/millisecondsPerYear).toFixed(2));
+}
