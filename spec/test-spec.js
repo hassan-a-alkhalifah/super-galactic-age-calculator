@@ -2,6 +2,26 @@ import { UserData } from "./../src/js/backend.js";
 
 describe("UserData", function() {
 
+  let newUser;
+
+  beforeEach(function() {
+    UserData.prototype.getWeightType = function() {
+      let BMI = (this.weight * 0.45)/((this.height * 0.025)*(this.height * 0.025));
+      if(BMI < 18.5) {
+        return "1";
+      } else if(BMI >= 18.5 && BMI <= 24.9) {
+        return "2";
+      } else if(BMI >= 25 && BMI <= 29.9) {
+        return "3";
+      } else {
+        return "4";
+      }
+    }
+    newUser = new UserData();
+    newUser.weight = 195;
+    newUser.height = 70;
+  });
+
   it("Store user input in new object based on key value pairs or constructor UserData", function() {
     let newUser = new UserData();
     newUser.age = 30;
@@ -61,27 +81,108 @@ describe("UserData", function() {
 
   it("Determine users weight type", function() {
     UserData.prototype.getWeightType = function() {
-      let BMI = (newUser.weight * 0.45)/((newUser.height * 0.025)*(newUser.height * 0.025));
+      let BMI = (this.weight * 0.45)/((this.height * 0.025)*(this.height * 0.025));
       if(BMI < 18.5) {
-        return 1;
+        return "1";
       } else if(BMI >= 18.5 && BMI <= 24.9) {
-        return 2;
+        return "2";
       } else if(BMI >= 25 && BMI <= 29.9) {
-        return 3;
+        return "3";
       } else {
-        return 4;
+        return "4";
       }
     }
     let newUser = new UserData();
     newUser.weight = 195;
     newUser.height = 70;
     let BMI = newUser.getWeightType();
-    expect(BMI).toEqual(3);
+    expect(BMI).toEqual("3");
   });
 
   it("Determine how many years a user has left to live on each planet", function() {
-    UserData.prototype.getYearsLeftToLiverPerPlanet = function() {
 
+
+    UserData.prototype.getYearsLeftToLiverPerPlanet = function() {
+      let weightType = this.getWeightType();
+      let averageLifeExpectancy = this.sex;
+
+      if(weightType == "1" || weightType == "3") {
+        averageLifeExpectancy -= 5;
+      } else if(weightType == "4") {
+        averageLifeExpectancy -= 20;
+      }
+
+      if(this.education == "1") {
+        averageLifeExpectancy -= 1;
+      } else if(this.education == "3") {
+        averageLifeExpectancy += 1;
+      } else if(this.education == "4") {
+        averageLifeExpectancy += 2;
+      }
+
+      if(this.relationshipStatus == "2") {
+        averageLifeExpectancy += 2;
+      } else if(this.relationshipStatus == "3") {
+        averageLifeExpectancy -= 2;
+      } else if(this.relationshipStatus == "4") {
+        averageLifeExpectancy -= 1;
+      }
+
+      if(this.workingStatus == "1") {
+        averageLifeExpectancy += 2;
+      } else if(this.workingStatus == "2") {
+        averageLifeExpectancy += 1;
+      } else if(this.workingStatus == "4") {
+        averageLifeExpectancy -= 2;
+      }
+
+      if(this.income == "1" || this.income == "3") {
+        averageLifeExpectancy += 1;
+      } else if(this.income == "4") {
+        averageLifeExpectancy += 2;
+      }
+
+      if(this.exercise == "1") {
+        averageLifeExpectancy -= 5;
+      } else if(this.exercise == "2") {
+        averageLifeExpectancy += 1;
+      } else if(this.exercise == "3") {
+        averageLifeExpectancy += 2;
+      } else {
+        averageLifeExpectancy += 4;
+      }
+
+      if(this.diet == "1") {
+        averageLifeExpectancy -= 5;
+      } else if(this.diet == "3") {
+        averageLifeExpectancy += 1;
+      } else if(this.diet == "4") {
+        averageLifeExpectancy += 2;
+      } else if(this.diet == "5") {
+        averageLifeExpectancy += 4;
+      }
+
+      if(this.alcohol == "1") {
+        averageLifeExpectancy += 1;
+      } else if(this.alcohol == "3") {
+        averageLifeExpectancy -= 2;
+      } else if(this.alcohol == "4") {
+        averageLifeExpectancy -= 4;
+      }
+
+      if(this.smoking == "1") {
+        averageLifeExpectancy += 1;
+      } else if(this.smoking == "2") {
+        averageLifeExpectancy -= 1;
+      } else {
+        averageLifeExpectancy -= 2;
+      }
+
+      newUser.yearsLeftToLiveOnEarth = (averageLifeExpectancy - this.age).toFixed(2);
+      newUser.yearsLeftToLiveOnMercury = ((averageLifeExpectancy / .24) - this.mercuryAge).toFixed(2);
+      newUser.yearsLeftToLiveOnVenus = ((averageLifeExpectancy / .62) - this.venusAge).toFixed(2);
+      newUser.yearsLeftToLiveOnMars = ((averageLifeExpectancy / 1.88).toFixed(2) - this.marsAge).toFixed(2);
+      newUser.yearsLeftToLiveOnJupiter = ((averageLifeExpectancy / 11.86).toFixed(2) - this.jupiterAge).toFixed(2);
     }
     newUser.age = 30.74;
     newUser.mercuryAge = 128.08;
@@ -89,9 +190,20 @@ describe("UserData", function() {
     newUser.marsAge = 16.35;
     newUser.jupiterAge = 2.59;
     newUser.sex = 83;
-    newUser.weight = 195;
-    newUser.height = 70;
-
+    newUser.education = "2";
+    newUser.relationshipStatus = "2";
+    newUser.workingStatus = "2";
+    newUser.income = "1";
+    newUser.exercise = "4";
+    newUser.diet = "5";
+    newUser.alcohol = "1";
+    newUser.smoking = "1";
+    newUser.getYearsLeftToLiverPerPlanet();
+    expect(newUser.yearsLeftToLiveOnEarth).toEqual("61.26");
+    expect(newUser.yearsLeftToLiveOnMercury).toEqual("255.25");
+    expect(newUser.yearsLeftToLiveOnVenus).toEqual("98.81");
+    expect(newUser.yearsLeftToLiveOnMars).toEqual("32.59");
+    expect(newUser.yearsLeftToLiveOnJupiter).toEqual("5.17");
   });
 
 });
