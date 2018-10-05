@@ -34,12 +34,27 @@ describe("UserData", function() {
       let birthDateMilliseconds = birthDate.getTime();
       let ageMilliseconds = Date.now() - birthDateMilliseconds;
       let millisecondsPerYear = 31536000000;
-      let currentAge = ageMilliseconds/millisecondsPerYear;
-      return parseFloat(currentAge.toFixed(2));
+      this.age = (ageMilliseconds/millisecondsPerYear).toFixed(2);
     }
     let newUser = new UserData;
-    newUser.age = newUser.getUserCurrentAge(1987, 12, 16);
-    expect(newUser.age).toEqual(30.74);
+    newUser.getUserCurrentAge(1987, 12, 16);
+    expect(newUser.age).toEqual("30.74");
+  });
+
+  it("convert users Earth age into Mercury, Venus, Mars and Jupiter years", function() {
+    UserData.prototype.getUserVariousPlanetAge = function() {
+      this.MercuryAge = (this.age / .24).toFixed(2);
+      this.VenusAge = (this.age / .62).toFixed(2);
+      this.MarsAge = (this.age / 1.88).toFixed(2);
+      this.JupiterAge = (this.age / 11.86).toFixed(2);
+    }
+    let newUser = new UserData;
+    newUser.age = 30.74;
+    newUser.getUserVariousPlanetAge();
+    expect(newUser.MercuryAge).toEqual("128.08");
+    expect(newUser.VenusAge).toEqual("49.58");
+    expect(newUser.MarsAge).toEqual("16.35");
+    expect(newUser.JupiterAge).toEqual("2.59");
   });
 
 });
