@@ -4,7 +4,7 @@ describe("UserData", function() {
 
   it("Store user input in new object based on key value pairs or constructor UserData", function() {
     let newUser = new UserData;
-    newUser.age = 31;
+    newUser.age = 30;
     newUser.weight = 195;
     newUser.height = 70;
     newUser.education = "2";
@@ -26,6 +26,20 @@ describe("UserData", function() {
     expect(newUser.diet).toEqual("5");
     expect(newUser.alcohol).toEqual("1");
     expect(newUser.smoking).toEqual("1");
+  });
+
+  it("get users current date of birth, i.e month, day and year, to calculate user's current age", function() {
+    UserData.prototype.getUserCurrentAge = function(year, month, day) {
+      let birthDate = new Date(year, month, day);
+      let birthDateMilliseconds = birthDate.getTime();
+      let ageMilliseconds = Date.now() - birthDateMilliseconds;
+      let millisecondsPerYear = 31536000000;
+      let currentAge = ageMilliseconds/millisecondsPerYear;
+      return parseFloat(currentAge.toFixed(2));
+    }
+    let newUser = new UserData;
+    newUser.age = newUser.getUserCurrentAge(1987, 12, 16);
+    expect(newUser.age).toEqual(30.74);
   });
 
 });
