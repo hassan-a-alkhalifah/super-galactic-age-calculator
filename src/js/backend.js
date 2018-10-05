@@ -107,9 +107,9 @@ UserData.prototype.getYearsLeftToLiverPerPlanet = function() {
   } else {
     averageLifeExpectancy -= 2;
   }
-  newUser.yearsLeftToLiveOnEarth = (averageLifeExpectancy - this.age).toFixed(2);
-  newUser.yearsLeftToLiveOnMercury = ((averageLifeExpectancy / .24) - this.mercuryAge).toFixed(2);
-  newUser.yearsLeftToLiveOnVenus = ((averageLifeExpectancy / .62) - this.venusAge).toFixed(2);
-  newUser.yearsLeftToLiveOnMars = ((averageLifeExpectancy / 1.88).toFixed(2) - this.marsAge).toFixed(2);
-  newUser.yearsLeftToLiveOnJupiter = ((averageLifeExpectancy / 11.86).toFixed(2) - this.jupiterAge).toFixed(2);
+  this.yearsLeftToLiveOnEarth = (averageLifeExpectancy).toFixed(2);
+  this.yearsLeftToLiveOnMercury = ((averageLifeExpectancy / .24)).toFixed(2);
+  this.yearsLeftToLiveOnVenus = ((averageLifeExpectancy / .62)).toFixed(2);
+  this.yearsLeftToLiveOnMars = ((averageLifeExpectancy / 1.88)).toFixed(2);
+  this.yearsLeftToLiveOnJupiter = ((averageLifeExpectancy / 11.86)).toFixed(2);
 }

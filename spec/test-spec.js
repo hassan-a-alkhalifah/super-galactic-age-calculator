@@ -178,11 +178,11 @@ describe("UserData", function() {
         averageLifeExpectancy -= 2;
       }
 
-      newUser.yearsLeftToLiveOnEarth = (averageLifeExpectancy - this.age).toFixed(2);
-      newUser.yearsLeftToLiveOnMercury = ((averageLifeExpectancy / .24) - this.mercuryAge).toFixed(2);
-      newUser.yearsLeftToLiveOnVenus = ((averageLifeExpectancy / .62) - this.venusAge).toFixed(2);
-      newUser.yearsLeftToLiveOnMars = ((averageLifeExpectancy / 1.88).toFixed(2) - this.marsAge).toFixed(2);
-      newUser.yearsLeftToLiveOnJupiter = ((averageLifeExpectancy / 11.86).toFixed(2) - this.jupiterAge).toFixed(2);
+      newUser.yearsLeftToLiveOnEarth = (averageLifeExpectancy).toFixed(2);
+      newUser.yearsLeftToLiveOnMercury = ((averageLifeExpectancy / .24)).toFixed(2);
+      newUser.yearsLeftToLiveOnVenus = ((averageLifeExpectancy / .62)).toFixed(2);
+      newUser.yearsLeftToLiveOnMars = ((averageLifeExpectancy / 1.88)).toFixed(2);
+      newUser.yearsLeftToLiveOnJupiter = ((averageLifeExpectancy / 11.86)).toFixed(2);
     }
     newUser.age = 30.74;
     newUser.mercuryAge = 128.08;
@@ -199,11 +199,11 @@ describe("UserData", function() {
     newUser.alcohol = "1";
     newUser.smoking = "1";
     newUser.getYearsLeftToLiverPerPlanet();
-    expect(newUser.yearsLeftToLiveOnEarth).toEqual("61.26");
-    expect(newUser.yearsLeftToLiveOnMercury).toEqual("255.25");
-    expect(newUser.yearsLeftToLiveOnVenus).toEqual("98.81");
-    expect(newUser.yearsLeftToLiveOnMars).toEqual("32.59");
-    expect(newUser.yearsLeftToLiveOnJupiter).toEqual("5.17");
+    expect(newUser.yearsLeftToLiveOnEarth).toEqual("92.00");
+    expect(newUser.yearsLeftToLiveOnMercury).toEqual("383.33");
+    expect(newUser.yearsLeftToLiveOnVenus).toEqual("148.39");
+    expect(newUser.yearsLeftToLiveOnMars).toEqual("48.94");
+    expect(newUser.yearsLeftToLiveOnJupiter).toEqual("7.76");
   });
 
 });
