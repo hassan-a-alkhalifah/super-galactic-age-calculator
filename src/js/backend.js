@@ -115,15 +115,13 @@ UserData.prototype.getYearsLeftToLiverPerPlanet = function() {
 }
 
 UserData.prototype.getYearsLivedAfterLifeExpectancyPerPlanet = function() {
-  if(this.age > this.expectedAgeOfDeathOnEarth) {
-    this.yearsLivedAfterExpectedAgeOfDeathOnEarth = (this.age - this.expectedAgeOfDeathOnEarth).toFixed(2);
+  this.yearsLivedAfterExpectedAgeOfDeathOnEarth = (this.age - this.expectedAgeOfDeathOnEarth).toFixed(2);
 
-    this.yearsLivedAfterExpectedAgeOfDeathOnMercury = (this.mercuryAge - this.expectedAgeOfDeathOnMercury).toFixed(2);
+  this.yearsLivedAfterExpectedAgeOfDeathOnMercury = (this.mercuryAge - this.expectedAgeOfDeathOnMercury).toFixed(2);
 
-    this.yearsLivedAfterExpectedAgeOfDeathOnVenus = (this.venusAge - this.expectedAgeOfDeathOnVenus).toFixed(2);
+  this.yearsLivedAfterExpectedAgeOfDeathOnVenus = (this.venusAge - this.expectedAgeOfDeathOnVenus).toFixed(2);
 
-    this.yearsLivedAfterExpectedAgeOfDeathOnMars = (this.marsAge - this.expectedAgeOfDeathOnMars).toFixed(2);
+  this.yearsLivedAfterExpectedAgeOfDeathOnMars = (this.marsAge - this.expectedAgeOfDeathOnMars).toFixed(2);
 
-    this.yearsLivedAfterExpectedAgeOfDeathOnJupiter = (this.jupiterAge - this.expectedAgeOfDeathOnJupiter).toFixed(2);
-  }
+  this.yearsLivedAfterExpectedAgeOfDeathOnJupiter = (this.jupiterAge - this.expectedAgeOfDeathOnJupiter).toFixed(2);
 }

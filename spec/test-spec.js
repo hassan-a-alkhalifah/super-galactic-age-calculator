@@ -305,21 +305,21 @@ describe("UserData", function() {
   it("If user lives after life expectancy, get years lived after life expectancy per planet ", function() {
     let test;
     UserData.prototype.getYearsLivedAfterLifeExpectancyPerPlanet = function() {
-      if(this.age > this.expectedAgeOfDeathOnEarth) {
-        this.yearsLivedAfterExpectedAgeOfDeathOnEarth = (this.age - this.expectedAgeOfDeathOnEarth).toFixed(2);
+      this.yearsLivedAfterExpectedAgeOfDeathOnEarth = (this.age - this.expectedAgeOfDeathOnEarth).toFixed(2);
 
-        this.yearsLivedAfterExpectedAgeOfDeathOnMercury = (this.mercuryAge - this.expectedAgeOfDeathOnMercury).toFixed(2);
+      this.yearsLivedAfterExpectedAgeOfDeathOnMercury = (this.mercuryAge - this.expectedAgeOfDeathOnMercury).toFixed(2);
 
-        this.yearsLivedAfterExpectedAgeOfDeathOnVenus = (this.venusAge - this.expectedAgeOfDeathOnVenus).toFixed(2);
+      this.yearsLivedAfterExpectedAgeOfDeathOnVenus = (this.venusAge - this.expectedAgeOfDeathOnVenus).toFixed(2);
 
-        this.yearsLivedAfterExpectedAgeOfDeathOnMars = (this.marsAge - this.expectedAgeOfDeathOnMars).toFixed(2);
+      this.yearsLivedAfterExpectedAgeOfDeathOnMars = (this.marsAge - this.expectedAgeOfDeathOnMars).toFixed(2);
 
-        this.yearsLivedAfterExpectedAgeOfDeathOnJupiter = (this.jupiterAge - this.expectedAgeOfDeathOnJupiter).toFixed(2);
-      }
+      this.yearsLivedAfterExpectedAgeOfDeathOnJupiter = (this.jupiterAge - this.expectedAgeOfDeathOnJupiter).toFixed(2);
     }
     newUser.getWeightType();
     newUser.getYearsLeftToLiverPerPlanet();
-    newUser.getYearsLivedAfterLifeExpectancyPerPlanet();
+    if(newUser.age > newUser.expectedAgeOfDeathOnEarth) {
+      newUser.getYearsLivedAfterLifeExpectancyPerPlanet();
+    }
     expect(newUser.yearsLivedAfterExpectedAgeOfDeathOnEarth).toEqual("8.00");
     expect(newUser.yearsLivedAfterExpectedAgeOfDeathOnMercury).toEqual("33.34");
     expect(newUser.yearsLivedAfterExpectedAgeOfDeathOnVenus).toEqual("12.90");
