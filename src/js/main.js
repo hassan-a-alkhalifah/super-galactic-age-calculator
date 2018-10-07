@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles.css';
+import '../scss/styles.scss';
 import { UserData } from "./backend.js";
 
 $(document).ready(function() {
