@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#birthdate {
+  display: flex;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 3px;
+    &:nth-child(1) {
+      padding-left: 4px;
+    }
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+    input {
+      width: 63px;
+    }
+  }
+}
